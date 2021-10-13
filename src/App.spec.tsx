@@ -9,7 +9,7 @@ describe("<App />", () => {
     jest.clearAllMocks();
   });
 
-  it("render hotels list", async () => {
+  it("renders hotels list when api has a successful response", async () => {
     const res = data.results;
 
     jest
@@ -42,11 +42,13 @@ describe("<App />", () => {
       expect(screen.getByTestId("sort-by-option")).not.toBeNull();
     });
 
-    fireEvent.change(screen.getByTestId("sort-by-option"),  {
-      target: { value: "priceLow" }
-    })
+    fireEvent.change(screen.getByTestId("sort-by-option"), {
+      target: { value: "priceLow" },
+    });
 
-    const sortedData = [...res].sort((a,b) => a.offer.displayPrice.amount - b.offer.displayPrice.amount);
+    const sortedData = [...res].sort(
+      (a, b) => a.offer.displayPrice.amount - b.offer.displayPrice.amount
+    );
 
     sortedData.forEach((hotelInfo, index) => {
       expect(screen.getAllByTestId("hotel-name")[index].textContent).toBe(
@@ -68,11 +70,13 @@ describe("<App />", () => {
       expect(screen.getByTestId("sort-by-option")).not.toBeNull();
     });
 
-    fireEvent.change(screen.getByTestId("sort-by-option"),  {
-      target: { value: "priceHigh" }
-    })
+    fireEvent.change(screen.getByTestId("sort-by-option"), {
+      target: { value: "priceHigh" },
+    });
 
-    const sortedData = [...res].sort((a,b) => b.offer.displayPrice.amount - a.offer.displayPrice.amount);
+    const sortedData = [...res].sort(
+      (a, b) => b.offer.displayPrice.amount - a.offer.displayPrice.amount
+    );
 
     sortedData.forEach((hotelInfo, index) => {
       expect(screen.getAllByTestId("hotel-name")[index].textContent).toBe(
@@ -81,15 +85,17 @@ describe("<App />", () => {
     });
   });
 
-  /*it("searches city and returns error response", async () => {
-    const rej = 'no city found'
+  it("render error message when api has a failed response", async () => {
+    const rej = 'any error message'
 
     jest.spyOn(services, "getHotelList").mockImplementation(() =>
-      Promise.reject(rej)
+      Promise.reject(new Error(rej))
     );
 
     render(<App />);
 
-
-  });*/
+    await waitFor(() => {
+      expect(screen.getByText("Internet Error")).not.toBeNull();
+    });
+  });
 });

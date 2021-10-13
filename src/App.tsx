@@ -18,7 +18,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <StatusWrapper status={status} message={"error"}>
+    <StatusWrapper status={status}>
       <SearchResultPage data={data} />
     </StatusWrapper>
   );

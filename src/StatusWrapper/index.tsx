@@ -3,17 +3,16 @@ import {LoadingStatusT} from './type';
 
 type Props = {
   status: LoadingStatusT;
-  message: string,
 };
 
-const StatusWrapper: React.FC<Props> = ({ status, children, message }) => {
+const StatusWrapper: React.FC<Props> = ({ status, children }) => {
   switch (status) {
     case LoadingStatusT.loading:
       return <div>loading.....</div>;
     case LoadingStatusT.fetched:
       return <>{children}</>;
     case LoadingStatusT.failed:
-      return <div>{message}</div>;
+      return <div>Internet Error</div>;
   }
 };
 
