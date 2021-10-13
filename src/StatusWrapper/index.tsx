@@ -10,12 +10,10 @@ const StatusWrapper: React.FC<Props> = ({ status, children, message }) => {
   switch (status) {
     case LoadingStatusT.loading:
       return <div>loading.....</div>;
-    case LoadingStatusT.success:
+    case LoadingStatusT.fetched:
       return <>{children}</>;
     case LoadingStatusT.failed:
       return <div>{message}</div>;
-    case LoadingStatusT.idle:
-      return null;
   }
 };
 

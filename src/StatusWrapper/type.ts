@@ -1,6 +1,5 @@
 export enum LoadingStatusT {
-  idle,
   loading,
-  success,
+  fetched,
   failed,
 }
