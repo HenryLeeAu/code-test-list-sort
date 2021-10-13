@@ -6,8 +6,12 @@ type Props = {
 };
 
 const Card: React.FC<Props> = ({ hotelInfo }) => {
-
-  return <div data-testid='hotel-name'>{ hotelInfo.property.title}</div>;
+  return (
+    <div>
+      <span data-testid="hotel-name">{hotelInfo.property.title}</span>
+      <span>Price:  {hotelInfo.offer.displayPrice.amount}</span>
+    </div>
+  );
 };
 
 export default Card;
