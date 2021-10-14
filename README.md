@@ -1,7 +1,7 @@
 
 ## Intro
 
-This project uses scss to update styles, I usually use css-in-js approach.
+This project uses scss to update styles, I usually use css-in-js approach. mobile web css is not implemented yet.
 
 ## Description
 - `StatusWrapper`
