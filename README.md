@@ -8,8 +8,7 @@ This project uses scss to update styles, I usually use css-in-js approach.
 A reusable wrapper layer which handles the ui status of fetching data.
 
 - `useService`
-A customer hook function can return data from api along with the loading status. every page only need to dump them onto ui. And these pages doesn't need to handle same functionalities again.
-
+A customer hook function can return data from api along with the loading status. The place where we are using this hook, we only need to dump data into component. We don't need to rewrite loading and fetch logic again over again and it has the consistent behaviour.
 ## How to try this project
 
 ### `yarn start`
