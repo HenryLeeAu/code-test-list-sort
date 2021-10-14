@@ -11,6 +11,9 @@ A reusable wrapper layer which handles the ui status of fetching data.
 A customer hook function can return data from api along with the loading status. The place where we are using this hook, we only need to dump data into component. We don't need to rewrite loading and fetch logic again over again and it has the consistent behaviour.
 ## How to try this project
 
+- `rating icon`
+Use css to design the star icon, it helps to reduce the bundle size but the downside is it might not be same as what UX give us.
+
 ### `yarn start`
 
 Runs the app in the development mode.\
