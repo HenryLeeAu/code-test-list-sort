@@ -23,6 +23,9 @@ type OfferT = {
   savings: PriceT | null,
   promotion: {
     title: string,
+  },
+  cancellationOption: {
+    cancellationType: string,
   }
 }
 

@@ -1,11 +1,13 @@
 import * as React from "react";
-import type { HotelInfoT } from "../services/type";
+
 import Card from "./Card";
+import "./index.scss";
+import type { HotelInfoT } from "../services/type";
 
 enum SortByT {
   unselected = "unselected",
   priceLow = "priceLow",
-  priceHeight = "priceHigh",
+  priceHigh = "priceHigh",
 }
 
 type Props = {
@@ -14,6 +16,21 @@ type Props = {
 
 const SearchResultPage: React.FC<Props> = ({ data }) => {
   const [sortBy, setSortBy] = React.useState<string>(SortByT.unselected);
+
+  const options = [
+    {
+      value: SortByT.unselected,
+      text: " -- select an option -- ",
+    },
+    {
+      value: SortByT.priceLow,
+      text: "Price low-high",
+    },
+    {
+      value: SortByT.priceHigh,
+      text: "Price high-low",
+    },
+  ];
 
   const onSortChange = (event: React.FormEvent<HTMLSelectElement>) => {
     setSortBy(event.currentTarget.value);
@@ -34,19 +51,30 @@ const SearchResultPage: React.FC<Props> = ({ data }) => {
 
     return list;
   };
+
   return (
     <div data-testid="search-result-page">
-      <label htmlFor="sortBy">Choose a car:</label>
-      <select
-        name="sortBy"
-        onChange={onSortChange}
-        value={sortBy}
-        data-testid="sort-by-option"
-      >
-        <option value={SortByT.unselected}> -- select an option -- </option>
-        <option value={SortByT.priceLow}>Price (Low to high)</option>
-        <option value={SortByT.priceHeight}>Price (High to low)</option>
-      </select>
+      <div className="list-header">
+        <div className="total-number">
+          <strong>{data.length}</strong> {`hotel${data.length > 1 ? "s" : ""}`}{" "}
+          in <strong>Sydney.</strong>
+        </div>
+        <div>
+          <label htmlFor="sortBy">
+            <strong>{"Sort by "}</strong>
+          </label>
+          <select
+            name="sortBy"
+            onChange={onSortChange}
+            value={sortBy}
+            data-testid="sort-by-option"
+          >
+            {options.map(({ value, text }) => (
+              <option key={value} value={value}>{text}</option>
+            ))}
+          </select>
+        </div>
+      </div>
       {sortList(data).map((hotelInfo) => (
         <Card key={hotelInfo.id} hotelInfo={hotelInfo} />
       ))}

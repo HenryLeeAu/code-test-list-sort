@@ -1,14 +1,14 @@
 import * as React from "react";
 
 import services from "./services";
-import StatusWrapper from "./StatusWrapper";
-import useService from "./useService";
+import StatusWrapper from "./components/StatusWrapper";
+import useService from "./utils/useService";
 
 import SearchResultPage from "./SearchResultPage";
 import type { HotelInfoT } from "./services/type";
 
-import { LoadingStatusT } from "./StatusWrapper/type";
-
+import { LoadingStatusT } from "./components/StatusWrapper/type";
+import SiteHeader from "./components/SiteHeader";
 const App: React.FC = () => {
   const {
     status,
@@ -18,9 +18,15 @@ const App: React.FC = () => {
   );
 
   return (
-    <StatusWrapper status={status}>
-      <SearchResultPage data={data} />
-    </StatusWrapper>
+    <>
+
+      <div className="site-wrapper">
+        <SiteHeader />
+        <StatusWrapper status={status}>
+          <SearchResultPage data={data} />
+        </StatusWrapper>
+      </div>
+    </>
   );
 };
 

@@ -1,0 +1,13 @@
+.list-header {
+  display: flex;
+  padding: 10px 0;
+
+  .total-number {
+    flex: 1;
+    font-style: italic;
+
+    strong {
+      font-style: normal;
+    }
+  }
+}

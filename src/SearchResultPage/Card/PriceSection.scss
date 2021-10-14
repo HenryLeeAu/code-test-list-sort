@@ -1,0 +1,29 @@
+.card {
+  .price-section {
+    align-self: flex-end;
+    text-align: right;
+
+    .price-title {
+      font-size: 12px;
+      padding-bottom: 4px;
+    }
+
+    .currency-symbol {
+      vertical-align:top;
+    }
+
+    .total-amount {
+      font-size: 26px;
+    }
+
+    .save-amount {
+     color: #e40000;
+     font-weight: bold;
+     height: 18px;
+
+      .end-symbol {
+        vertical-align: 'super';
+      }
+    }
+  }
+}
