@@ -1,18 +1,14 @@
 
 ## Intro
 
-This project only include functionalities implementation and test cases without any css style.
-I usually use css-in-js approach to add css style.
+This project uses scss to update styles, I usually use css-in-js approach.
 
 ## Architecture
 - `StatusWrapper`
-A reusable wrapper layer which handles the ui status for each loading status.
+A reusable wrapper layer which handles the ui status of fetching data.
 
-- `getCurrentWeather`
-An importable service, if we change the implementation (for example replace axios with another library), component and its testing does not required future change. Also handle an customised error so UI only needs to know rendering a error string, instead of inconsistent response from 3rd party api or network error.
-
-- `config`
-A central file will contain all the keys and endpoints for the future
+- `useService`
+A customer hook function can return data from api along with the loading status. every page only need to dump them onto ui. And these pages doesn't need to handle same functionalities again.
 
 ## How to try this project
 

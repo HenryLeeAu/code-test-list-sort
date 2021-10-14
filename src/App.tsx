@@ -19,7 +19,6 @@ const App: React.FC = () => {
 
   return (
     <>
-
       <div className="site-wrapper">
         <SiteHeader />
         <StatusWrapper status={status}>
