@@ -3,7 +3,7 @@
 
 This project uses scss to update styles, I usually use css-in-js approach.
 
-## Architecture
+## Description
 - `StatusWrapper`
 A reusable wrapper layer which handles the ui status of fetching data.
 
