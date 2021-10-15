@@ -37,14 +37,16 @@ const SearchResultPage: React.FC<Props> = ({ data }) => {
   };
 
   const sortList = (list: Array<HotelInfoT>) => {
+    const copiedList = [...list];
+
     if (sortBy === "priceLow") {
-      return [...list].sort(
+      return copiedList.sort(
         (a, b) => a.offer.displayPrice.amount - b.offer.displayPrice.amount
       );
     }
 
     if (sortBy === "priceHigh") {
-      return [...list].sort(
+      return copiedList.sort(
         (a, b) => b.offer.displayPrice.amount - a.offer.displayPrice.amount
       );
     }
@@ -56,7 +58,7 @@ const SearchResultPage: React.FC<Props> = ({ data }) => {
     <div data-testid="search-result-page">
       <div className="list-header">
         <div className="total-number">
-          <strong>{data.length}</strong> {`hotel${data.length > 1 ? "s" : ""}`}{" "}
+          <strong>{data.length}</strong> {`hotel${data.length > 1 ? "s" : ""} `}
           in <strong>Sydney.</strong>
         </div>
         <div>
@@ -70,7 +72,9 @@ const SearchResultPage: React.FC<Props> = ({ data }) => {
             data-testid="sort-by-option"
           >
             {options.map(({ value, text }) => (
-              <option key={value} value={value}>{text}</option>
+              <option key={value} value={value}>
+                {text}
+              </option>
             ))}
           </select>
         </div>
