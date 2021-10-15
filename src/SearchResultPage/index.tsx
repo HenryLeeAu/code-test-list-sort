@@ -39,13 +39,13 @@ const SearchResultPage: React.FC<Props> = ({ data }) => {
   const sortList = (list: Array<HotelInfoT>) => {
     const copiedList = [...list];
 
-    if (sortBy === "priceLow") {
+    if (sortBy === SortByT.priceLow) {
       return copiedList.sort(
         (a, b) => a.offer.displayPrice.amount - b.offer.displayPrice.amount
       );
     }
 
-    if (sortBy === "priceHigh") {
+    if (sortBy === SortByT.priceHigh) {
       return copiedList.sort(
         (a, b) => b.offer.displayPrice.amount - a.offer.displayPrice.amount
       );
