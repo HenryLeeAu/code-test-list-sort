@@ -1,20 +1,28 @@
 .card {
   .rating-icon {
-    font-size: 18px;
+    padding-left: 1px;
+    font-size: 15px;
     font-weight: 700;
-    text-transform: uppercase;
     display: inline-block;
 
     &.half {
-      background: linear-gradient(90deg, #f7e601 50%, #dfdfe1 50%); /* Here you can use an image bg */
+      background: linear-gradient(
+        90deg,
+        #f7e601 50%,
+        #dfdfe1 50%
+      ); /* Here you can use an image bg */
       -webkit-background-clip: text; /* This will bring bg shape according to text*/
       -webkit-text-fill-color: transparent; /* This will make text color transparent */
-      color: rgba(0,0,0,0.0); /* This will make text color transparent for sure */
+      color: rgba(
+        0,
+        0,
+        0,
+        0
+      ); /* This will make text color transparent for sure */
     }
 
     &.enabled {
       color: #f7e601;
-
     }
 
     &.disabled {

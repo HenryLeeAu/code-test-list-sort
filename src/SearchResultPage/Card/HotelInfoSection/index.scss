@@ -2,4 +2,21 @@
   .hotel-info-section {
     flex: 1;
   }
+
+  .hotel-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    max-width: 310px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+  }
+
+  .rating-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 8px;
+  }
 }
