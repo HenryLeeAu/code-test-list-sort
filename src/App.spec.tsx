@@ -26,6 +26,9 @@ describe("<App />", () => {
       expect(screen.getAllByTestId("hotel-name")[index].textContent).toBe(
         hotelInfo.property.title
       );
+      expect(screen.getAllByTestId("hotel-address")[index].textContent).toBe(
+        `${hotelInfo.property.address.join(", ")}`
+      );
     });
   });
 
@@ -86,11 +89,11 @@ describe("<App />", () => {
   });
 
   it("render error message when api has a failed response", async () => {
-    const rej = 'any error message'
+    const rej = "any error message";
 
-    jest.spyOn(services, "getHotelList").mockImplementation(() =>
-      Promise.reject(new Error(rej))
-    );
+    jest
+      .spyOn(services, "getHotelList")
+      .mockImplementation(() => Promise.reject(new Error(rej)));
 
     render(<App />);
 

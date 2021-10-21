@@ -20,7 +20,7 @@ const Card: React.FC<Props> = ({ hotelInfo: { offer, property } }) => (
     <div className="info-wrapper">
       <HotelInfoSection
         hotelName={property.title}
-        address={property.title}
+        address={property.address.join(", ")}
         offerName={offer.name}
         isCancelFeeFree={
           offer.cancellationOption.cancellationType === "FREE_CANCELLATION"
